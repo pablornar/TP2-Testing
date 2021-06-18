@@ -20,4 +20,4 @@ void inicio(void);
 //void lecturaADC(void);
 //void enviodatos(void);
 void procesamiento(void);
-
+char* itoa(int value, char* result, int base);

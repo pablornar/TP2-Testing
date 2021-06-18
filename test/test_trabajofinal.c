@@ -40,3 +40,9 @@ void test_procesamiento_256(void) {
     TEST_ASSERT_EQUAL_HEX8(0Xff, datos8[3]);  //compara si son iguales
     TEST_ASSERT_EQUAL_HEX8(0X03,tarea);  //compara si son iguales
 }
+
+void test_char(void) {
+    static char uartBuff[10];
+    itoa(1, uartBuff, 10);
+    TEST_ASSERT_EQUAL_CHAR('1',uartBuff[0]);  //compara si son iguales
+}

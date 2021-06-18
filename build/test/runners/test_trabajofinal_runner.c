@@ -13,6 +13,7 @@ extern void tearDown(void);
 extern void test_inicio(void);
 extern void test_procesamiento(void);
 extern void test_procesamiento_256(void);
+extern void test_char(void);
 
 
 /*=======Mock Management=====*/
@@ -80,6 +81,7 @@ int main(void)
   run_test(test_inicio, "test_inicio", 13);
   run_test(test_procesamiento, "test_procesamiento", 23);
   run_test(test_procesamiento_256, "test_procesamiento_256", 33);
+  run_test(test_char, "test_char", 44);
 
   return UnityEnd();
 }
