@@ -38,4 +38,5 @@ void test_procesamiento_256(void) {
     }
     procesamiento();
     TEST_ASSERT_EQUAL_HEX8(0Xff, datos8[3]);  //compara si son iguales
+    TEST_ASSERT_EQUAL_HEX8(0X03,tarea);  //compara si son iguales
 }

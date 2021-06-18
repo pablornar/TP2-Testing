@@ -108,4 +108,10 @@ void test_procesamiento_256(void) {
 
    ), (UNITY_UINT)(40), UNITY_DISPLAY_STYLE_HEX8);
 
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X03)), (UNITY_INT)(UNITY_INT8 )((tarea)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_HEX8);
+
 }
