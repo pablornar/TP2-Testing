@@ -43,6 +43,19 @@ void test_procesamiento_256(void) {
 
 void test_char(void) {
     static char uartBuff[10];
-    itoa(1, uartBuff, 10);
-    TEST_ASSERT_EQUAL_CHAR('1',uartBuff[0]);  //compara si son iguales
+    itoa(2, uartBuff, 10);
+    TEST_ASSERT_EQUAL_CHAR('2',uartBuff[0]);  //compara si son iguales
+}
+
+void test_trigger(void) {
+    int j;
+    tarea=1;
+    bantrigger=0;
+    for(j=0;j<256;j++){
+        adcRead[j]=0;
+    }
+    adcRead[10]=492;
+    adcRead[11]=500;
+    lecturaADC();
+    TEST_ASSERT_EQUAL_HEX8(0x01,bantrigger);  //compara si son iguales
 }

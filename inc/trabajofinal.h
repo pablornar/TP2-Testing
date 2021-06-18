@@ -17,7 +17,7 @@ uint8_t bantrigger;
 
 void inicio(void);
 //void lecturateclado(void);
-//void lecturaADC(void);
+void lecturaADC(void);
 //void enviodatos(void);
 void procesamiento(void);
 char* itoa(int value, char* result, int base);

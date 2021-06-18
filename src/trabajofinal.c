@@ -70,7 +70,9 @@ void lecturaADC() {
 				}
 			}
 			i = 1;
+			
 		}
+		
 		//bantrigger=1;
 		if (bantrigger == 1) {
 			//Leo la Entrada Analogica AI0 - ADC0 CH1 
@@ -82,6 +84,7 @@ void lecturaADC() {
 				tarea = 2;
 			}
 		}
+		
 	}
 }
 

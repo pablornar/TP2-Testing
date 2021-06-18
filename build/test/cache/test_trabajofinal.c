@@ -122,12 +122,42 @@ void test_char(void) {
 
     static char uartBuff[10];
 
-    itoa(1, uartBuff, 10);
+    itoa(2, uartBuff, 10);
 
-    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )(('1')), (UNITY_INT)(UNITY_INT8 )((uartBuff[0])), (
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )(('2')), (UNITY_INT)(UNITY_INT8 )((uartBuff[0])), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_CHAR);
+
+}
+
+
+
+void test_trigger(void) {
+
+    int j;
+
+    tarea=1;
+
+    bantrigger=0;
+
+    for(j=0;j<256;j++){
+
+        adcRead[j]=0;
+
+    }
+
+    adcRead[10]=492;
+
+    adcRead[11]=500;
+
+    lecturaADC();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0x01)), (UNITY_INT)(UNITY_INT8 )((bantrigger)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(60), UNITY_DISPLAY_STYLE_HEX8);
 
 }

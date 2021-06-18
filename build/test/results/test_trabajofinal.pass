@@ -19,12 +19,16 @@
   :line: 44
   :message: ''
   :unity_test_time: 0
+- :test: test_trigger
+  :line: 50
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 4
-  :passed: 4
+  :total: 5
+  :passed: 5
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0017833090000749507
+:time: 0.0016765459995440324
