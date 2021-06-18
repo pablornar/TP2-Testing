@@ -22,9 +22,20 @@ void test_inicio(void) {
 
 void test_procesamiento(void) {
     int i;
+    tarea=2;
     for(i=0;i<256;i++){
         muestra16[i]=0;
     }
     procesamiento();
     TEST_ASSERT_EQUAL_HEX8(0X00, datos8[3]);  //compara si son iguales
+}
+
+void test_procesamiento_256(void) {
+    int i;
+    tarea=2;
+    for(i=0;i<256;i++){
+        muestra16[i]=1020;
+    }
+    procesamiento();
+    TEST_ASSERT_EQUAL_HEX8(0Xff, datos8[3]);  //compara si son iguales
 }

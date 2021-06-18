@@ -68,6 +68,8 @@ void test_procesamiento(void) {
 
     int i;
 
+    tarea=2;
+
     for(i=0;i<256;i++){
 
         muestra16[i]=0;
@@ -80,6 +82,30 @@ void test_procesamiento(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_HEX8);
+
+}
+
+
+
+void test_procesamiento_256(void) {
+
+    int i;
+
+    tarea=2;
+
+    for(i=0;i<256;i++){
+
+        muestra16[i]=1020;
+
+    }
+
+    procesamiento();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0Xff)), (UNITY_INT)(UNITY_INT8 )((datos8[3])), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(40), UNITY_DISPLAY_STYLE_HEX8);
 
 }
