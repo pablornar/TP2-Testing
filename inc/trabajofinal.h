@@ -19,5 +19,5 @@ void inicio(void);
 //void lecturateclado(void);
 //void lecturaADC(void);
 //void enviodatos(void);
-//void procesamiento(void);
+void procesamiento(void);
 

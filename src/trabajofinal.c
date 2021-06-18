@@ -125,7 +125,7 @@ void lecturateclado() {
 	}
 }
 */
-/*
+
 void procesamiento() {
 	if (tarea == 2) {
 		for (i = 0; i < 256; i++) {
@@ -135,7 +135,7 @@ void procesamiento() {
 		tarea = 3;
 	}
 }
-*/
+
 
 /** FUNCION PARA CONVERTIR A ASCII CON BASE 10
  * C++ version 0.4 char* style "itoa":

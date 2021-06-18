@@ -61,3 +61,25 @@ void test_inicio(void) {
    ), (UNITY_UINT)(20), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+void test_procesamiento(void) {
+
+    int i;
+
+    for(i=0;i<256;i++){
+
+        muestra16[i]=0;
+
+    }
+
+    procesamiento();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X00)), (UNITY_INT)(UNITY_INT8 )((datos8[3])), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_HEX8);
+
+}

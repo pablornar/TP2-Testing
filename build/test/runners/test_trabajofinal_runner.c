@@ -11,6 +11,7 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_inicio(void);
+extern void test_procesamiento(void);
 
 
 /*=======Mock Management=====*/
@@ -76,6 +77,7 @@ int main(void)
 {
   UnityBegin("test_trabajofinal.c");
   run_test(test_inicio, "test_inicio", 13);
+  run_test(test_procesamiento, "test_procesamiento", 23);
 
   return UnityEnd();
 }

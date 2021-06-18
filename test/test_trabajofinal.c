@@ -19,3 +19,12 @@ void test_inicio(void) {
     TEST_ASSERT_EQUAL_HEX8(0X00, bantrigger);  //compara si son iguales
     TEST_ASSERT_EQUAL_HEX8(0X05, mili);  //compara si son iguales
 }
+
+void test_procesamiento(void) {
+    int i;
+    for(i=0;i<256;i++){
+        muestra16[i]=0;
+    }
+    procesamiento();
+    TEST_ASSERT_EQUAL_HEX8(0X00, datos8[3]);  //compara si son iguales
+}
