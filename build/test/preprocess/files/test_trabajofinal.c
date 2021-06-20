@@ -1,3 +1,4 @@
+#include "build/test/mocks/mock_sapi.h"
 #include "inc/trabajofinal.h"
 #include "/var/lib/gems/2.5.0/gems/ceedling-0.31.0/vendor/unity/src/unity.h"
 
@@ -6,9 +7,23 @@
 
 
 
+
+
+
+
 void setUp(void) {
 
+    uartConfig_CMockIgnore();
 
+    adcConfig_CMockIgnore();
+
+    gpioRead_CMockIgnoreAndReturn(12, 37);
+
+    uartReadByte_CMockIgnoreAndReturn(13, 2);
+
+    uartWriteString_CMockIgnore();
+
+    uartWriteByte_CMockIgnore();
 
 }
 
@@ -20,6 +35,12 @@ void tearDown(void) {
 
 
 
+
+
+
+
+
+
 void test_inicio(void) {
 
     inicio();
@@ -28,39 +49,45 @@ void test_inicio(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(15), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(26), UNITY_DISPLAY_STYLE_HEX8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X00)), (UNITY_INT)(UNITY_INT8 )((bancont)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(16), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(27), UNITY_DISPLAY_STYLE_HEX8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0X0000)), (UNITY_INT)(UNITY_INT16)((i)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(17), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(28), UNITY_DISPLAY_STYLE_HEX16);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X00)), (UNITY_INT)(UNITY_INT8 )((tarea)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(18), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(29), UNITY_DISPLAY_STYLE_HEX8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X00)), (UNITY_INT)(UNITY_INT8 )((bantrigger)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(19), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_HEX8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X05)), (UNITY_INT)(UNITY_INT8 )((mili)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(20), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(31), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+
+
+
 
 
 
@@ -82,9 +109,15 @@ void test_procesamiento(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(30), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(44), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+
+
+
 
 
 
@@ -106,15 +139,21 @@ void test_procesamiento_256(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(40), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_HEX8);
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT8 )((0X03)), (UNITY_INT)(UNITY_INT8 )((tarea)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(41), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(58), UNITY_DISPLAY_STYLE_HEX8);
 
 }
+
+
+
+
+
+
 
 
 
@@ -128,9 +167,15 @@ void test_char(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(47), UNITY_DISPLAY_STYLE_CHAR);
+   ), (UNITY_UINT)(67), UNITY_DISPLAY_STYLE_CHAR);
 
 }
+
+
+
+
+
+
 
 
 
@@ -158,6 +203,6 @@ void test_trigger(void) {
 
    ((void *)0)
 
-   ), (UNITY_UINT)(60), UNITY_DISPLAY_STYLE_HEX8);
+   ), (UNITY_UINT)(83), UNITY_DISPLAY_STYLE_HEX8);
 
 }

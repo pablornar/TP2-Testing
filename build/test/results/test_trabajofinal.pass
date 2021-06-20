@@ -4,23 +4,23 @@
   :file: test_trabajofinal.c
 :successes:
 - :test: test_inicio
-  :line: 13
+  :line: 24
   :message: ''
   :unity_test_time: 0
 - :test: test_procesamiento
-  :line: 23
+  :line: 37
   :message: ''
   :unity_test_time: 0
 - :test: test_procesamiento_256
-  :line: 33
+  :line: 50
   :message: ''
   :unity_test_time: 0
 - :test: test_char
-  :line: 44
+  :line: 64
   :message: ''
   :unity_test_time: 0
 - :test: test_trigger
-  :line: 50
+  :line: 73
   :message: ''
   :unity_test_time: 0
 :failures: []
@@ -31,4 +31,4 @@
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0016765459995440324
+:time: 0.0016569459994570934

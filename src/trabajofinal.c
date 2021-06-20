@@ -6,46 +6,23 @@
 
 //#include "sapi.h"        // <= Biblioteca sAPI
 #include "trabajofinal.h"         // <= Su propia cabecera
+ 
+#define UART_USB 3
+#define UART_232 1
+#define ADC_ENABLE 1
+#define TEC2 37
+#define TEC3 38
+#define receivedByte  2
 
-
-// FUNCION PRINCIPAL, PUNTO DE ENTRADA AL PROGRAMA LUEGO DE ENCENDIDO O RESET.
-//int main(void) {
-	/* ------------- INICIALIZACIONES ------------- */
-	//boardConfig();	//inicializacion de placa
-	//inicio();		//inicializacion
-
-	/* Variable de Retardo no bloqueante */
-	//delay_t Tm;
-	//delay_t Ttarea;
-
-	/* Inicializar Retardo no bloqueante con tiempo en milisegundos
-	 (500ms = 0,5s) */
-	//delayConfig(&Ttarea, 1);
-
-	/* ------------- REPETIR POR SIEMPRE ------------- */
-	//while (1) {
-		//lecturateclado();
-		//if (delayRead(&Ttarea)) { /* delayRead retorna TRUE cuando se cumple el tiempo de retardo */
-		//	if (tempo == 1) {
-				//delayConfig(&Ttarea, mili);
-			//	tempo = 0;
-		//	}
-			//lecturaADC();
-		//}
-		//procesamiento();
-		//enviodatos();
-	//}
-//	return 0;
-//}
-
-
+/*
+Funcio que inicaliza el adc, uart y las variables 
+*/
 void inicio() {
 	/* Inicializar UART_USB a 115200 baudios */
-	//uartConfig(UART_USB, 230400);
-	//uartConfig(UART_232, 230400);
+	uartConfig(UART_USB, 230400);
+	uartConfig(UART_232, 230400);
 	/* Inicializar AnalogIO */
-	//adcConfig(ADC_ENABLE); /* ADC */
-
+	adcConfig(ADC_ENABLE); /* ADC */
 	/*Inicializacion de variables  */
 	tempo = 0;
 	bancont = 0;
@@ -55,6 +32,10 @@ void inicio() {
 	bantrigger = 0;
 }
 
+/*
+Funcion para la lectura de los datos por el adc y los almacena en un vector si los datos leidos estan en una ventana
+de 482 a 540 siendo crecientes (trigger)
+*/
 void lecturaADC() {
 	if (tarea == 1) {
 		if (bantrigger == 0) {
@@ -89,6 +70,8 @@ void lecturaADC() {
 }
 
 /*
+Funcion para la lectura del teclado la cual modifica el tiempo de muestreo de los datos de lectura
+*/
 void lecturateclado() {
 	if (tarea == 0) {
 		if ((!gpioRead(TEC2)) == 1) {
@@ -104,8 +87,8 @@ void lecturateclado() {
 				mili = 1;
 			}
 		}
-
-		if (uartReadByte(UART_USB, &receivedByte)) {
+		
+		if (uartReadByte(UART_USB, receivedByte)) {
 			switch (receivedByte) {
 			case 'a':
 				tempo = 1;
@@ -123,12 +106,15 @@ void lecturateclado() {
 				break;
 			}
 		}
-
+		
 		tarea = 1;
 	}
+	
 }
-*/
 
+/*
+Funcion que procesa los datos conviertiendo los datos de 16 a 8 bits para su posterior envio a la pc
+*/
 void procesamiento() {
 	if (tarea == 2) {
 		for (i = 0; i < 256; i++) {
@@ -169,7 +155,10 @@ char* itoa(int value, char* result, int base) {
    }
    return result;
 }
+
 /*
+Funcion que envia los datos procesados a la pc en formato ascci
+*/
 void enviodatos() {
 	static char uartBuff[10];
 	if (tarea == 3) {
@@ -185,4 +174,3 @@ void enviodatos() {
 		}
 	}
 }
-*/

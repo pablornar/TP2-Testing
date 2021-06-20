@@ -2,6 +2,8 @@
 
 /*=======Automagically Detected Files To Include=====*/
 #include "unity.h"
+#include "cmock.h"
+#include "mock_sapi.h"
 
 int GlobalExpectCount;
 int GlobalVerifyOrder;
@@ -23,12 +25,15 @@ static void CMock_Init(void)
   GlobalExpectCount = 0;
   GlobalVerifyOrder = 0;
   GlobalOrderError = NULL;
+  mock_sapi_Init();
 }
 static void CMock_Verify(void)
 {
+  mock_sapi_Verify();
 }
 static void CMock_Destroy(void)
 {
+  mock_sapi_Destroy();
 }
 
 /*=======Test Reset Options=====*/
@@ -79,11 +84,12 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_trabajofinal.c");
-  run_test(test_inicio, "test_inicio", 13);
-  run_test(test_procesamiento, "test_procesamiento", 23);
-  run_test(test_procesamiento_256, "test_procesamiento_256", 33);
-  run_test(test_char, "test_char", 44);
-  run_test(test_trigger, "test_trigger", 50);
+  run_test(test_inicio, "test_inicio", 24);
+  run_test(test_procesamiento, "test_procesamiento", 37);
+  run_test(test_procesamiento_256, "test_procesamiento_256", 50);
+  run_test(test_char, "test_char", 64);
+  run_test(test_trigger, "test_trigger", 73);
 
+  CMock_Guts_MemFreeFinal();
   return UnityEnd();
 }
